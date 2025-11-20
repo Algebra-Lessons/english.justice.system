@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Canvas</title>
+  <title>Google</title>
 
-  <!-- Default favicon (tab icon) -->
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/4/44/Canvas_logo.png">
+  <!-- Tab icon / favicon set to Google logo -->
+  <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
 
   <style>
     html, body {
@@ -25,7 +25,7 @@
       border: 0;
     }
 
-    /* Branding overlay */
+    /* Your branding overlay */
     .brand {
       position: absolute;
       top: 15px;
@@ -56,76 +56,17 @@
 
 <body>
 
-  <!-- BRAND LOGO + TEXT -->
+  <!-- YOUR BRAND LOGO + TEXT -->
   <div class="brand">
     <img src="https://i.ibb.co/VWmFnzmh/image-2025-11-19-192011158-removebg-preview.png">
     <span>DP.G@mes</span>
   </div>
 
-  <!-- Fullscreen game iframe -->
+  <!-- The game -->
   <iframe 
     src="https://duckmath.org/class/race-survival-arena-king"
     allowfullscreen>
   </iframe>
-
-  <!-- Tab Cloak Script -->
-  <script>
-    const faviconLink = document.querySelector("link[rel~='icon']") || (() => {
-        const link = document.createElement("link");
-        link.rel = "icon";
-        document.head.appendChild(link);
-        return link;
-    })();
-
-    let originalTitle = document.title;
-    let originalIcon = faviconLink.href;
-
-    // Presets for tab cloak
-    const cloaks = {
-        "default": {
-            title: "Canvas",
-            icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Canvas_logo.png"
-        },
-        "classroom": {
-            title: "Google Classroom",
-            icon: "https://ssl.gstatic.com/classroom/favicon.png"
-        },
-        "docs": {
-            title: "Google Docs",
-            icon: "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_48dp.png"
-        },
-        "drive": {
-            title: "Google Drive",
-            icon: "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_48dp.png"
-        },
-        "khan": {
-            title: "Khan Academy",
-            icon: "https://www.khanacademy.org/favicon.ico"
-        }
-    };
-
-    // Initialize default cloak
-    function setCloak(key) {
-        const cloak = cloaks[key] || cloaks["default"];
-        document.title = cloak.title;
-        faviconLink.href = cloak.icon;
-        originalTitle = cloak.title;
-        originalIcon = cloak.icon;
-    }
-
-    setCloak("default");
-
-    // Auto-switch when tab is hidden
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            document.title = "Google Docs";
-            faviconLink.href = "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_48dp.png";
-        } else {
-            document.title = originalTitle;
-            faviconLink.href = originalIcon;
-        }
-    });
-  </script>
 
 </body>
 </html>
