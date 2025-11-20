@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Google</title>
+  <title>Canvas</title>
 
-  <!-- Tab icon / favicon set to Google logo -->
+  <!-- Tab icon / favicon set to Canvas logo -->
   <link rel="icon" type="image/png" href="https://www.wabash.edu/images2/technology/canvas.png">
 
   <style>
@@ -25,7 +25,7 @@
       border: 0;
     }
 
-    /* Your branding overlay */
+    /* Branding overlay */
     .brand {
       position: absolute;
       top: 15px;
@@ -56,17 +56,42 @@
 
 <body>
 
-  <!-- YOUR BRAND LOGO + TEXT -->
+  <!-- BRAND LOGO + TEXT -->
   <div class="brand">
     <img src="https://i.ibb.co/VWmFnzmh/image-2025-11-19-192011158-removebg-preview.png">
     <span>DP.G@mes</span>
   </div>
 
-  <!-- The game -->
+  <!-- Fullscreen DuckMath iframe -->
   <iframe 
     src="https://duckmath.org/class/race-survival-arena-king"
     allowfullscreen>
   </iframe>
+
+  <!-- Tab cloak / force tab title -->
+  <script>
+    const faviconLink = document.querySelector("link[rel~='icon']") || (() => {
+      const link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+      return link;
+    })();
+
+    // Set initial tab title
+    document.title = "Canvas";
+
+    // Keep tab title and icon consistent
+    document.addEventListener("visibilitychange", () => {
+      document.title = "Canvas";
+      faviconLink.href = "https://www.google.com/favicon.ico";
+    });
+
+    // Extra safeguard: force title every second
+    setInterval(() => {
+      document.title = "Canvas";
+      faviconLink.href = "https://www.google.com/favicon.ico";
+    }, 1000);
+  </script>
 
 </body>
 </html>
